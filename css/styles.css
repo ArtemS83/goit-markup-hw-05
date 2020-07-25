@@ -53,13 +53,16 @@ img {
   height: auto;
 }
 /* Скрываем визуально текст */
-.visualy-hidden {
+.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
   margin: -1px;
   border: 0;
   padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
@@ -76,19 +79,6 @@ img {
 }
 /*                                        Шапка сайта  */
 
-/* "Эффект присутствия на странице */
-.nav-link.current {
-  color: var(--hover-color);
-  padding-bottom: 0;
-}
-.nav-link.current::after {
-  content: '';
-  height: 4px;
-  border-radius: 2px;
-  background-color: var(--hover-color);
-  display: block;
-  margin-top: 28px;
-}
 /* Accent эффект */
 .nav-link:hover,
 .nav-link:focus,
@@ -120,7 +110,26 @@ img {
   letter-spacing: 0.02em;
   color: var(--main-title-color);
 }
+/* "Эффект присутствия на странице */
+.nav-link.current {
+  color: var(--hover-color);
+  /* padding-bottom: 0; */
+}
+.nav-link.current::after {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 
+  content: '';
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--hover-color);
+  display: block;
+  /* margin-top: 28px; */
+}
+.nav-list .item {
+  position: relative;
+}
 .contakt-link {
   font-weight: 500;
   line-height: 1.14;
