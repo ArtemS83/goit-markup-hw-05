@@ -20,6 +20,7 @@
   --hover-color: #2196f3;
   --background-color: #f5f4fa;
   --icon-color: #afb1b8;
+  --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -79,13 +80,6 @@ img {
 }
 /*                                        Шапка сайта  */
 
-/* Accent эффект */
-.nav-link:hover,
-.nav-link:focus,
-.contakt-link:hover,
-.contakt-link:focus {
-  color: var(--hover-color);
-}
 /* Логотип */
 .logo {
   font-family: var(--font-logo);
@@ -109,11 +103,19 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--main-title-color);
+
+  transition: color var(--transition-duration-250ms) var(--cubic-bezier);
+}
+/* Accent эффект */
+.nav-link:hover,
+.nav-link:focus,
+.contakt-link:hover,
+.contakt-link:focus {
+  color: var(--hover-color);
 }
 /* "Эффект присутствия на странице */
 .nav-link.current {
   color: var(--hover-color);
-  /* padding-bottom: 0; */
 }
 .nav-link.current::after {
   position: absolute;
@@ -125,7 +127,6 @@ img {
   border-radius: 2px;
   background-color: var(--hover-color);
   display: block;
-  /* margin-top: 28px; */
 }
 .nav-list .item {
   position: relative;
@@ -135,6 +136,8 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--text-color);
+
+  transition: color var(--transition-duration-250ms) var(--cubic-bezier);
 }
 .header > .container {
   display: flex;
@@ -177,6 +180,8 @@ img {
   align-self: center;
   margin-right: 10px;
   fill: var(--text-color);
+
+  transition: fill var(--transition-duration-250ms) var(--cubic-bezier);
 }
 .contakt-link:hover .icon-mail,
 .contakt-link:focus .icon-mail,
@@ -233,8 +238,6 @@ img {
   padding-left: 32px;
 
   border-radius: 4px;
-  /* Убираем рамку до выяснения */
-  /* border: 1px solid transparent; */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
   font-weight: 700;
@@ -244,6 +247,9 @@ img {
 
   background-color: var(--hover-color);
   color: var(--main-write-color);
+
+  transition: background-color var(--transition-duration-250ms)
+    var(--cubic-bezier);
 }
 .hero-button:hover,
 .hero-button:focus {
@@ -407,11 +413,16 @@ img {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+
+  transition: background-color var(--transition-duration-250ms)
+    var(--cubic-bezier);
 }
 .name-social-item .icon {
   width: 20px;
   height: 20px;
   fill: var(--icon-color);
+
+  transition: fill var(--transition-duration-250ms) var(--cubic-bezier);
 }
 
 .name-social-item > a:hover {
@@ -447,6 +458,8 @@ img {
   border: 1px solid #afb1b8;
   border-radius: 4px;
   background-color: var(--main-background-color);
+
+  transition: border-color var(--transition-duration-250ms) var(--cubic-bezier);
 }
 .customers-item > a:hover,
 .customers-item > a:focus {
@@ -454,30 +467,8 @@ img {
 }
 .customers-icon {
   fill: var(--icon-color);
-}
-.icon-logo-1 {
-  width: 44px;
-  height: 49px;
-}
-.icon-logo-2 {
-  width: 40px;
-  height: 52px;
-}
-.icon-logo-3 {
-  width: 41px;
-  height: 43px;
-}
-.icon-logo-4 {
-  width: 80px;
-  height: 42px;
-}
-.icon-logo-5 {
-  width: 59px;
-  height: 47px;
-}
-.icon-logo-6 {
-  width: 88px;
-  height: 46px;
+
+  transition: fill var(--transition-duration-250ms) var(--cubic-bezier);
 }
 
 .customers-item > a:hover .customers-icon,
@@ -521,9 +512,10 @@ img {
   border-color: transparent;
   cursor: pointer;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--transition-duration-250ms)
+      var(--cubic-bezier),
+    color var(--transition-duration-250ms) var(--cubic-bezier),
+    box-shadow var(--transition-duration-250ms) var(--cubic-bezier);
 }
 .filter-button:hover,
 .filter-button:focus {
@@ -569,7 +561,8 @@ img {
   flex-wrap: wrap;
 }
 .portfolio-link {
-  transition: box-shadow 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  transition: box-shadow var(--transition-duration-250ms) var(--cubic-bezier);
 }
 .portfolio-link:hover,
 .portfolio-link:focus {
@@ -619,7 +612,7 @@ img {
   color: var(--main-write-color);
 
   transform: translateY(100%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--transition-duration-250ms) var(--cubic-bezier);
 }
 .portfolio-link:hover .portfolio-about,
 .portfolio-link:focus .portfolio-about {
@@ -656,7 +649,9 @@ img {
   color: var(--main-write-color);
   text-transform: uppercase;
 }
-
+.accent-link {
+  transition: color var(--transition-duration-250ms) var(--cubic-bezier);
+}
 .accent-link:hover,
 .accent-link:focus {
   color: var(--hover-color);
@@ -689,6 +684,9 @@ img {
   align-items: center;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
+
+  transition: background-color var(--transition-duration-250ms)
+    var(--cubic-bezier);
 }
 .footer-social-item .icon {
   width: 20px;
