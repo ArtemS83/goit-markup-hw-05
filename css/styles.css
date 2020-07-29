@@ -9,8 +9,8 @@
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url('../fonts/raleway-v16-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-/* Подключение Аннимации на Логотип */
-@keyframes pulse {
+/* Подключение Аннимации на Логотип,если не поключен линк на анимацию */
+/* @keyframes pulse {
   from {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
@@ -25,7 +25,7 @@
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
-}
+} */
 :root {
   --main-font: 'Roboto', sans-serif;
   --font-logo: 'Raleway', sans-serif;
@@ -112,12 +112,13 @@ img {
 }
 /* Анимация Логотипа */
 .animate__pulse {
-  -webkit-animation-name: pulse;
+  /* Необходимо задать время,и через линк, и через @keyframes */
+  animation-duration: 1000ms;
+  /* Подключение Аннимации на Логотип,если не поключен линк на анимацию */
+  /* -webkit-animation-name: pulse;
   animation-name: pulse;
   -webkit-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
-  /* Необходимо задать время,свойства класса и @keyframes просто копируются */
-  animation-duration: 1000ms;
+  animation-timing-function: ease-in-out; */
 }
 /* Текст */
 .nav-link {
